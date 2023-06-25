@@ -8,10 +8,9 @@ export default function ContactForm({ onSubmit }) {
   const [number, setNumber] = useState("");
 
   const formReset = () => {
-    setName('');
-    setNumber('');
+    setName("");
+    setNumber("");
   };
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,11 +25,11 @@ export default function ContactForm({ onSubmit }) {
         break;
 
       default:
-        throw new Error('unsupported type');
+        throw new Error("unsupported type");
     }
   };
 
-  const submitHandler = e => {
+  const submitHandler = (e) => {
     e.preventDefault();
     const { name, number } = e.currentTarget.elements;
     const newContact = {
@@ -74,3 +73,7 @@ export default function ContactForm({ onSubmit }) {
     </Form>
   );
 }
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
